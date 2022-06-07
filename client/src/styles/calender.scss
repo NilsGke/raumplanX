@@ -1,0 +1,81 @@
+@use "index";
+
+#calenderBackground {
+  transition: all index.$transDur ease-in-out;
+
+  opacity: 0;
+  z-index: -2;
+  &.open {
+    opacity: 1;
+    z-index: 4;
+  }
+}
+
+#calenderBackground {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  background-color: #20212494;
+  // filter: blur(30px);
+}
+
+#calender {
+  box-shadow: 0px 0px 100px rgba(103, 103, 103, 0.6117647059);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #202124;
+  padding: 40px;
+  border-radius: 30px;
+  width: clamp(0px, 80%, 1300px);
+  height: clamp(0px, 80%, 1300px);
+  opacity: 0;
+  z-index: -3;
+  transition: all index.$transDur ease-in-out;
+
+  $titleHeight: 10%;
+
+  div#calenderHeader {
+    height: $titleHeight;
+    h1 {
+      margin: 0;
+      padding: 0;
+      width: min-content;
+      white-space: nowrap;
+      text-shadow: 0px 0px 1px white;
+    }
+    button#calenderClose {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      height: 40px;
+      width: 40px;
+      border-radius: 100px;
+      border: none;
+      background-color: #323336;
+      color: white;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+  iframe {
+    height: calc(100% - $titleHeight);
+    width: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+    background-color: white;
+  }
+
+  &.visible {
+    opacity: 1;
+    z-index: 4;
+  }
+}

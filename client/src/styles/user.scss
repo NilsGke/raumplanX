@@ -1,0 +1,90 @@
+@use "index";
+@use "sass:color";
+.user {
+  color: index.$text_light;
+  background: color.adjust(index.$bg1_light, $alpha: -0.4);
+  transition: all index.$transDur ease-in-out;
+  width: 50%;
+  position: relative;
+  padding: 10px;
+  border-radius: 15px;
+  width: min-content;
+  overflow: hidden;
+  h3,
+  h4 {
+    white-space: nowrap;
+    margin: 2px 0;
+    z-index: 3;
+  }
+  .removeUserContainer {
+    position: absolute;
+    top: 15px;
+    right: -10px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0;
+      background-color: transparent;
+      border: none;
+      height: 30px;
+      width: 30px;
+      color: #ff4747;
+      cursor: pointer;
+      z-index: 2;
+    }
+  }
+  h4 {
+    color: index.$grey_light;
+  }
+  .teams {
+    display: flex;
+  }
+
+  &.blueprint {
+    > * {
+      margin: 2px 0;
+    }
+    span.loadingText,
+    .team,
+    h3,
+    h4 {
+      animation: bg_blink 0.5s ease-in-out infinite alternate-reverse;
+      border-radius: 6px;
+      height: 19px;
+    }
+    .w1 {
+      width: 140px;
+    }
+    .w2 {
+      width: 70px;
+    }
+    .w3 {
+      width: 100px;
+    }
+    @keyframes bg_blink {
+      from {
+        background-color: #818283;
+      }
+      to {
+        background-color: #696969;
+      }
+    }
+  }
+}
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+  .user {
+    color: index.$text_dark;
+    background: color.adjust(index.$bg3_dark, $alpha: -0.4);
+    h4 {
+      color: index.$grey_light;
+    }
+  }
+}

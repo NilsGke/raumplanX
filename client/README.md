@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Raumplan 2.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## Available Scripts
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
-In the project directory, you can run:
+[![Node.js CI](https://github.com/NilsGke/raumplan2/actions/workflows/node.js.yml/badge.svg)](https://github.com/NilsGke/raumplan2/actions/workflows/node.js.yml)
 
-### `npm start`
+## Was ist der Raumplan
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Der Raumplan ist dazu gedacht, dass Mitarbeiter einen Überblick über die Büroflächen und Tische bekommen. Man kann so einfach Personen finden oder schauen, wer an einem Tisch sitzt.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Was ist anders in der 2.0 version?
 
-### `npm test`
+Der neue Tischplan ist in React geschrieben und hat im Vergleich zum alten Tischplan deutlich bessere Funktionen. Die Suchfunktion kann mehr dinge finden,
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Local setup
 
-### `npm run build`
+```
+git clone https://github.com/NilsGke/raumplan2.git
+cd raumplan2
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Der [Server](https://github.com/NilsGke/raumplan2server) wird zusätzlich benötigt!**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Wie funktioniert das Tisch verschieben?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Jeder Tisch ist child von einem einem `react-draggable`, welches ursprünglich links oben bei (0|0) ist. Wenn der Tisch nun verschoben wird, wird immer, wenn das react-draggable losgelassen wird die x und y Koordinaten auf den Tisch übertragen, damit dieser an der Richtigen stelle ist. Wenn der Tisch gespeichert wird, wird die Relative Verschiebung mit der normalen Position verrechnet und gespeichert.
 
-### `npm run eject`
+## Besonderheit: resource friendly
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Ich versuche den Raumplan so zu entwickeln, dass nur die Ressourcen geholt werden, die wirklich benötigt werden. So werden beim initial page load nur die Daten der Aktuellen Location (Tischgröße), die Räume, Teams, Tische und das Grundriss-Bild von der aktuellen Location geladen. Die Benutzer und Teams werden erst geladen, wenn man mit der Maus über einen Tisch hovered und gespeichert um später wieder verwendet werden zu können.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Backend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Das Backend für den Raumplan ist [hier](https://github.com/NilsGke/raumplan2Server). Es basiert auf einem Node server und eine SQL-Datenbank, die alle Tische, Locations, Teams usw... hält.

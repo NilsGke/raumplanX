@@ -1,0 +1,23 @@
+.team {
+  width: min-content;
+  padding: 2px;
+  border-radius: 5px;
+  white-space: nowrap;
+  padding: 0 5px;
+  &.placeholder {
+    animation: bg_blink 0.5s ease-in-out infinite alternate-reverse;
+    border-radius: 6px;
+    height: 19px;
+    width: 100px;
+    @keyframes bg_blink {
+      from {
+        background-color: #818283;
+        color: #818283;
+      }
+      to {
+        background-color: #696969;
+        color: #696969;
+      }
+    }
+  }
+}

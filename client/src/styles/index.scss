@@ -1,0 +1,134 @@
+$bg1_light: #ffffff;
+$bg2_light: #e2e2e2;
+$bg3_light: #cecece;
+$grey_light: #6b6b6b;
+$text_light: #000000;
+
+$bg1_dark: #262626;
+$bg2_dark: #323336;
+$bg3_dark: #3b3d40;
+$grey_dark: #6b6b6b;
+$text_dark: #ffffff;
+
+$lightShadow: #bdbdbd;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+$transDur: 0.2s;
+
+html,
+body,
+#root,
+#app {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  background-color: $bg1_light;
+}
+
+#app {
+  background-repeat: no-repeat;
+  z-index: -1;
+  #map {
+    position: absolute;
+    z-index: 0;
+  }
+}
+
+// .__react_component_tooltip {
+//   z-index: 1 !important;
+// }
+
+.highlighted:after {
+  height: 100px;
+  width: 100px;
+  content: "";
+  background: transparent;
+  position: absolute;
+  border: 3px solid #57ff57ad;
+  border-radius: 100%;
+  z-index: 2;
+  animation: blink 1s ease-in-out 0s infinite alternate-reverse;
+
+  @keyframes blink {
+    0% {
+      border: 20px solid #57ff57ad;
+      // border-color: #ff5757ad;
+      height: 150px;
+      width: 150px;
+    }
+
+    // 20% {
+    //     border-color: #fcff57ad;
+    // }
+    // 40% {
+    //     border-color: #57ff5fad;
+    // }
+    // 60% {
+    //     border-color: #57f4ffad;
+    // }
+    // 60% {
+    //     border-color: #5776ffad;
+    // }
+    100% {
+      border: 10px solid #57ff57ad;
+      // border-color: #c157ffad;
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+#error {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .errorMessage {
+    background-color: $bg1_light;
+    color: $text_light;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: -10px 10px 20px 0px $grey_light;
+    // width: min-content;
+    * {
+    }
+    h1 {
+      color: #ff6161;
+      white-space: nowrap;
+    }
+    code {
+      padding: 10px;
+      background-color: $bg2_light;
+      border-radius: 5px;
+      box-shadow: inset;
+    }
+    h4 {
+      color: $grey_light;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    background: $bg1_dark;
+    #map {
+      filter: invert(1) contrast(0.7) hue-rotate(197deg);
+    }
+  }
+}

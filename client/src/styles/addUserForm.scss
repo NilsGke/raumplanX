@@ -1,0 +1,142 @@
+@use "index";
+
+#addUserFormBackground,
+#addUserForm {
+  &,
+  * {
+    transition: all index.$transDur ease-in-out;
+  }
+  opacity: 0;
+  z-index: -2;
+  &.open {
+    opacity: 1;
+    z-index: 4;
+  }
+}
+
+#addUserFormBackground {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  background-color: #20212494;
+  // filter: blur(30px);
+}
+
+#addUserForm {
+  box-shadow: 0px 0px 100px #6767679c;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #202124;
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 50%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    div#header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      > * {
+        float: left;
+        &#userNameInput {
+          width: calc(100% - 50px);
+          font-size: 20px;
+          background-color: #323336;
+          border: 1px solid #3b3d40;
+          color: white;
+          outline: none;
+          padding: 10px;
+          border-radius: 10px;
+        }
+        &#closeButtonContainer {
+          overflow: hidden;
+          height: 35px;
+          width: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            padding: 0;
+            background-color: #323336;
+            border: none;
+            color: white;
+            border-radius: 100px;
+            font-size: 20px;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    div#selectUser {
+      margin: 20px 0;
+      max-height: 300px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+      .noData {
+        margin: 10px;
+        padding: 10px;
+        color: grey;
+      }
+      .user {
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      // scrollbar
+      & {
+        /* width */
+        &::-webkit-scrollbar {
+          transition: all index.$transDur ease-in-out;
+          width: 6px;
+          &:hover {
+            width: 10px;
+          }
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+          background: #28292d;
+          border-radius: 10px;
+          &:hover {
+            width: 10px;
+          }
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          transition: all index.$transDur ease-in-out;
+          background: #323336;
+          border-radius: 10px;
+          &:hover {
+            width: 10px;
+          }
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: #3e3f42;
+          &:hover {
+            width: 10px;
+          }
+        }
+      }
+    }
+  }
+}

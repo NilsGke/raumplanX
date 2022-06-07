@@ -1,0 +1,39 @@
+@use "index";
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+#app > .react-draggable.tableDraggable {
+  z-index: 2;
+
+  .table {
+    @extend .noselect;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    background-color: #cfdcff;
+    border-radius: 3px;
+    border: 1px solid #253460;
+    z-index: 1;
+    cursor: pointer;
+    transition: background-color index.$transDur ease-in-out;
+  }
+}
+
+// user prefers dark theme
+@media (prefers-color-scheme: dark) {
+  #app > .react-draggable.tableDraggable {
+    .table {
+      background-color: lighten(index.$bg3_dark, 10%);
+      border-color: lighten(index.$bg2_dark, 5%);
+    }
+  }
+}

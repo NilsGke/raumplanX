@@ -1,0 +1,63 @@
+@use "index";
+@use "sass:color";
+
+#locationDropdownContainer {
+  transition: all calc(index.$transDur * 1.5) ease-in-out;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 60px;
+  max-height: 0px;
+  max-width: 0px;
+  padding: 0px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px grey;
+  backdrop-filter: blur(7px);
+
+  #locationDropdown {
+    background: color.adjust(index.$bg1_light, $alpha: -0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1000;
+    padding: 20px;
+
+    button.location {
+      background-color: index.$bg2_light;
+      color: index.$text_light;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      font-size: 20px;
+      white-space: nowrap;
+      margin: 5px;
+      padding: 10px;
+      cursor: pointer;
+      &.current {
+        border: 2px solid index.$grey_light;
+      }
+    }
+  }
+  &.open {
+    max-height: 500px;
+    max-width: 300px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #locationDropdownContainer {
+    #locationDropdown {
+      background: color.adjust(index.$bg1_dark, $alpha: -0.3);
+
+      button.location {
+        background-color: index.$bg2_dark;
+        color: index.$text_dark;
+        &.current {
+          border: 2px solid white;
+        }
+      }
+    }
+  }
+}

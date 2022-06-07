@@ -1,0 +1,376 @@
+@use "index";
+
+#tooltip {
+  transition: all calc(index.$transDur/2) ease-out, height 1s ease-in-out;
+  * {
+    transition: all index.$transDur ease-out,
+      font-size calc(index.$transDur/4) ease-in-out;
+    cursor: initial;
+  }
+  position: relative;
+  width: min-content;
+  background-color: rgba(
+    red(index.$bg2_light),
+    green(index.$bg2_light),
+    blue(index.$bg2_light),
+    0.5
+  );
+  backdrop-filter: blur(10px);
+  color: index.$text_light;
+  max-height: 70%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 0px index.$grey_light;
+  // transition: all index.$transDur cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: all calc(index.$transDur) ease-in-out;
+  cursor: grab;
+  padding: 20px;
+  button {
+    cursor: pointer;
+    * {
+      cursor: pointer;
+    }
+  }
+  #closeButtonContainer,
+  #editButtonContainer {
+    overflow: hidden;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 25px;
+    top: 25px;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      padding: 0;
+      background-color: index.$bg3_light;
+      border: none;
+      color: index.$text_light;
+      border-radius: 100px;
+      font-size: 0;
+      height: 0;
+      width: 0;
+      cursor: pointer;
+    }
+  }
+  #editButtonContainer {
+    left: 25px;
+    button {
+      font-size: 20px;
+      height: 35px;
+      width: 35px;
+    }
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  input#tableNumber {
+    width: 60%;
+    min-height: 37px;
+    white-space: nowrap;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: transparent;
+    color: index.$text_light;
+    border: none;
+  }
+  #inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 150px;
+    h3,
+    h4 {
+      margin: 5px 0;
+    }
+    h5 {
+      color: index.$grey_dark;
+      text-align: center;
+    }
+    &.hidden {
+      height: 0;
+    }
+    div#rotateTableInput {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: index.$text_light;
+
+      input {
+        width: 60%;
+      }
+      button {
+        background: none;
+        color: index.$text_light;
+        border: 1px solid index.$grey_light;
+        border-radius: 10px;
+        font-size: 20px;
+        height: 25px;
+        width: 25px;
+        margin: 0 20px;
+        cursor: pointer;
+        &:hover,
+        &:focus {
+          background-color: index.$bg3_light;
+        }
+      }
+    }
+  }
+  #usersContainer {
+    padding: 5px;
+    display: flex;
+    grid-template-rows: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-gap: 5px;
+    max-height: 50vh;
+    height: auto;
+    place-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .userContainer {
+      overflow: hidden;
+      // height: 100px;
+    }
+
+    .spinner-container {
+      height: 103px;
+    }
+    .noUsers {
+      height: 103px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: index.$grey_light;
+    }
+
+    // scrollbar
+    & {
+      /* width */
+      &::-webkit-scrollbar {
+        transition: all index.$transDur ease-in-out;
+        width: 6px;
+        width: 10px;
+        &:hover {
+        }
+      }
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: index.$bg1_light;
+        border-radius: 10px;
+        &:hover {
+          width: 10px;
+        }
+      }
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        transition: all index.$transDur ease-in-out;
+        background: index.$bg2_light;
+        border-radius: 10px;
+        &:hover {
+          width: 10px;
+        }
+      }
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: index.$bg3_light;
+        width: 10px;
+        &:hover {
+        }
+      }
+    }
+  }
+  #controls {
+    width: 100%;
+    max-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    button {
+      height: 40px;
+      width: 40px;
+      max-width: 40px;
+      background: index.$bg3_light;
+      color: index.$text_light;
+      border: none;
+      border-radius: 10px;
+      margin: 10px 0;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0px 0px 10px 0px index.$lightShadow;
+      &#reset {
+        svg {
+          filter: invert(1);
+        }
+      }
+      &#delete {
+        color: #ff4747;
+      }
+
+      transition: all index.$transDur ease-in-out;
+      &.hidden {
+        // max-width: 0;
+        // margin: 0;
+        padding: 0;
+        margin-top: 100px;
+      }
+    }
+  }
+
+  &.popup {
+    padding: 25px;
+    h1,
+    input#tableNumber {
+      margin-left: 50px;
+      margin-right: 50px;
+      cursor: grab;
+      border-bottom: 1px solid index.$grey_light;
+    }
+    #usersContainer {
+      grid-gap: 10px;
+      .userContainer {
+        max-height: 100px;
+        background-color: transparent;
+        border-radius: 15px;
+        .user {
+          h3 {
+            margin-right: 30px;
+          }
+          .removeUserContainer {
+            transition: all index.$transDur ease-in-out;
+            right: 10px;
+            button {
+              font-size: 20px;
+            }
+          }
+          padding: 15px;
+        }
+      }
+      &.hidden {
+        .userContainer {
+          max-height: 0;
+        }
+      }
+    }
+    #closeButtonContainer {
+      button {
+        font-size: 20px;
+        height: 35px;
+        width: 35px;
+      }
+    }
+    #editButtonContainer {
+      button {
+        font-size: 0px;
+        height: 0px;
+        width: 0px;
+      }
+    }
+    #controls {
+      max-height: 60px;
+    }
+  }
+
+  &.dragging {
+    transition: none;
+    cursor: grabbing;
+  }
+  .noDragHere {
+    cursor: initial;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #tooltip {
+    background-color: rgba(
+      red(index.$bg2_dark),
+      green(index.$bg2_dark),
+      blue(index.$bg2_dark),
+      0.6
+    );
+    box-shadow: 0px 0px 20px 0px
+      rgba(
+        red(index.$grey_dark),
+        green(index.$grey_dark),
+        blue(index.$grey_dark),
+        0.5
+      );
+    #closeButtonContainer,
+    #editButtonContainer {
+      button {
+        background-color: index.$bg3_dark;
+        color: index.$text_dark;
+      }
+    }
+    input#tableNumber {
+      color: index.$text_dark;
+    }
+    #inputs {
+      h3,
+      h4,
+      h5 {
+        color: index.$text_dark;
+      }
+      h5 {
+        color: index.$grey_light;
+      }
+      div#rotateTableInput {
+        color: index.$text_dark;
+        button {
+          color: index.$text_dark;
+          border-color: index.$grey_dark;
+          &:hover,
+          &:focus {
+            background-color: index.$bg3_dark;
+          }
+        }
+      }
+    }
+    #usersContainer {
+      // scrollbar
+      & {
+        &::-webkit-scrollbar-track {
+          background: rgba(
+            red(index.$bg3_dark),
+            green(index.$bg3_dark),
+            blue(index.$bg3_dark),
+            0.3
+          );
+        }
+        &::-webkit-scrollbar-thumb {
+          background: index.$bg2_dark;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: index.$bg1_dark;
+        }
+      }
+    }
+    #controls {
+      button {
+        background-color: index.$bg3_dark;
+        color: index.$text_dark;
+        box-shadow: 0px 0px 10px 0px index.$bg3_dark;
+      }
+    }
+  }
+}

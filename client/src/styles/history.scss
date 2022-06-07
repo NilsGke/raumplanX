@@ -1,0 +1,140 @@
+@use "index";
+@use "sass:color";
+
+#historyPopupContainer {
+  transition: all calc(index.$transDur * 1.5) ease-in-out;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 60px;
+  max-height: 0px;
+  max-width: 0px;
+  padding: 0px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px grey;
+  backdrop-filter: blur(7px);
+
+  #historyPopup {
+    max-height: 500px;
+    overflow: hidden scroll;
+    background: color.adjust(index.$bg1_light, $alpha: -0.3);
+    border-radius: 20px;
+    z-index: 1000;
+    padding: 20px;
+    .item {
+      background-color: index.$bg2_light;
+      color: index.$text_light;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all index.$transDur ease-in-out;
+      .timeStamp {
+        color: index.$grey_light;
+      }
+      .description {
+        margin: 0 10px;
+        color: index.$text_light;
+      }
+      button {
+        margin: 0;
+        padding: 2px;
+        border: none;
+        background: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all index.$transDur ease-in-out;
+        &:hover {
+          background-color: index.$bg1_light;
+        }
+        svg {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      &.hover {
+        background-color: index.$bg2_light;
+      }
+    }
+    .empty {
+      color: index.$grey_dark;
+      width: 200px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    // scrollbar
+    & {
+      /* width */
+      &::-webkit-scrollbar {
+        transition: all index.$transDur ease-in-out;
+        width: 6px;
+        &:hover {
+          width: 10px;
+        }
+      }
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #28292d;
+        border-radius: 10px;
+        &:hover {
+          width: 10px;
+        }
+      }
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        transition: all index.$transDur ease-in-out;
+        background: #323336;
+        border-radius: 10px;
+        &:hover {
+          width: 10px;
+        }
+      }
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #3e3f42;
+        &:hover {
+          width: 10px;
+        }
+      }
+    }
+  }
+  &.open {
+    max-height: 500px;
+    max-width: 300px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #historyPopupContainer {
+    #historyPopup {
+      background: color.adjust(index.$bg1_dark, $alpha: -0.3);
+      .item {
+        background-color: index.$bg2_dark;
+        color: index.$text_dark;
+        .timeStamp {
+          color: color.adjust(index.$grey_dark, $whiteness: +20%);
+        }
+        .description {
+          color: index.$text_dark;
+        }
+        &.hover {
+          background-color: color.adjust(index.$bg3_dark, $whiteness: +10%);
+        }
+      }
+
+      .empty {
+        color: index.$grey_dark;
+      }
+    }
+  }
+}
