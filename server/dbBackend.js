@@ -21,13 +21,10 @@ db.connect((err) => {
 
 // middleware that is specific to this router
 router.use((req, res, next) => {
-  console.log("Time: ", Date.now());
   next();
 });
 // define the home page route
-router.get(["/", "ping"], (req, res) => {
-  res.sendStatus(200);
-});
+router.get(["/", "ping"], (req, res) => res.sendStatus(200));
 
 // serve locations data
 router.get("/locations", (req, res) => {
