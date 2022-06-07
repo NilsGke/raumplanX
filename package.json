@@ -4,8 +4,7 @@
   "description": "The Raumplan that combines the [Frontend](https://github.com/NilsGke/raumplan2) and the [Backend](https://github.com/NilsGke/raumplan2Server)",
   "main": "index.js",
   "scripts": {
-    "startLocal": "node server/backendLocal.js",
-    "startDb": "node server/backendDb.js"
+    "start": "node ./server/index.js"
   },
   "repository": {
     "type": "git",
