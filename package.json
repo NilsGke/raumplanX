@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/index.js",
-    "workflow": "npm ci && cd client && npm install && npm run build && cd .. && npm run start",
+    "workflow": "npm ci && cd client && npm install && npm run build",
     "firstSetup": "npm install && cd client && npm install && npm run build && cd .. && npm run start"
   },
   "repository": {
