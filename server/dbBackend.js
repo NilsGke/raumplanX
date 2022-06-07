@@ -109,6 +109,7 @@ router.get("/users/*", (req, res) => {
 // get users on table
 router.get("/usersAtTable/*", (req, res) => {
   res.send(400);
+  return;
   const tableId = decodeURI(req.url).split("/").at(-1);
   db.query(
     "SELECT * FROM users WHERE id IN (SELECT userId FROM tableusermap WHERE tableId = ?)",
