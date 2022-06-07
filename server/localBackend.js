@@ -38,14 +38,46 @@ router.get("/users", (req, res) => {
   res.send(JSON.parse(fs.readFileSync("./server/data/users.json").toString()));
 });
 
-// serve one specific user
+// serve one specific user WITH TEAMS!
 router.get("/users/*", (req, res) => {
   const userId = decodeURI(req.url).split("/").at(-1).replace("%20", " ");
+  const user = JSON.parse(
+    fs.readFileSync("./server/data/users.json").toString()
+  ).find((u) => u.id === userId);
+
+  const teamIds = JSON.parse(
+    fs.readFileSync("./server/data/userTeamMap.json").toString()
+  ).filter((e) => e.user === userId);
+
+  const teams = JSON.parse(
+    fs.readFileSync("./server/data/teams.json").toString()
+  ).filter((t) => teamIds.some((e) => e.team === t.id));
+
+  user.teams = teams;
+
+  res.send(user);
+});
+
+// get tables users
+router.get("/tablesUsers", (req, res) => {
   res.send(
-    JSON.parse(fs.readFileSync("./server/data/users.json").toString()).filter(
-      (u) => u.id === userId
-    )
+    JSON.parse(
+      fs.readFileSync("./server/data/tableUserMap.json").toString()
+    ).map((e) => ({ tableId: e.table, userId: e.user }))
   );
+});
+
+// get tables users
+router.get("/tablesUsers/*", (req, res) => {
+  const tableId = parseInt(
+    decodeURI(req.url).split("/").at(-1).replace("%20", " ")
+  );
+  const users = [];
+
+  JSON.parse(fs.readFileSync("./server/data/tableUserMap.json").toString())
+    .filter((e) => e.table === tableId)
+    .forEach((u) => users.push(u.user));
+  res.send(users);
 });
 
 // serve users by name
@@ -79,17 +111,18 @@ router.get("/tables/*", (req, res) => {
 
 // add user to table
 router.post("/addUserToTable", (req, res) => {
-  const tables = JSON.parse(
-    fs.readFileSync("./server/data/tables.json").toString()
-  );
-  const tableIndex = tables.map((t) => t.id).indexOf(req.body.tableId);
-  tables[tableIndex].user = filterOutSemicolons(
-    tables[tableIndex].user + ";" + req.body.userId
+  const tableUserMap = JSON.parse(
+    fs.readFileSync("./server/data/tableUserMap.json").toString()
   );
 
+  tableUserMap.push({
+    table: parseInt(req.body.tableId),
+    user: req.body.userId,
+  });
+
   fs.writeFileSync(
-    "./server/data/tables.json",
-    JSON.stringify(tables, null, 2)
+    "./server/data/tableUserMap.json",
+    JSON.stringify(tableUserMap, null, 2)
   );
 
   res.sendStatus(200);
@@ -97,17 +130,23 @@ router.post("/addUserToTable", (req, res) => {
 
 // remove user from table
 router.post("/removeUserFromTable", (req, res) => {
-  const tables = JSON.parse(
-    fs.readFileSync("./server/data/tables.json").toString()
-  );
-  const tableIndex = tables.map((t) => t.id).indexOf(req.body.tableId);
-  tables[tableIndex].user = filterOutSemicolons(
-    tables[tableIndex].user.replace(req.body.userId, "")
+  const tableUserMap = JSON.parse(
+    fs.readFileSync("./server/data/tableUserMap.json").toString()
   );
 
+  indexToRemove = tableUserMap.indexOf(
+    tableUserMap.find(
+      (e) => e.table === req.body.tableId && e.user === req.body.userId
+    )
+  );
+  if (indexToRemove === -1)
+    return res.send({ error: "User is not sitting at that table" });
+
+  tableUserMap.splice(indexToRemove, 1);
+
   fs.writeFileSync(
-    "./server/data/tables.json",
-    JSON.stringify(tables, null, 2)
+    "./server/data/tableUserMap.json",
+    JSON.stringify(tableUserMap, null, 2)
   );
 
   res.sendStatus(200);
@@ -259,7 +298,7 @@ router.post("/addTable", (req, res) => {
 
 // changeTableNumber table
 router.post("/changeTableNumber", (req, res) => {
-  if (req.body.id && req.body.tableNumber) {
+  if (req.body.id != undefined && req.body.tableNumber != undefined) {
     const tables = JSON.parse(
       fs.readFileSync("./server/data/tables.json").toString()
     );
