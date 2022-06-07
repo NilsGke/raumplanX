@@ -1,0 +1,119 @@
+[
+  {
+    "teamId": "1",
+    "name": "Marketing",
+    "color": "#C6B2FC",
+    "location": 3,
+    "x": 309,
+    "y": 808,
+    "id": 0
+  },
+  {
+    "teamId": "2",
+    "name": "Draw.io",
+    "color": "#E88208",
+    "location": 3,
+    "x": 100,
+    "y": 808,
+    "id": 1
+  },
+  {
+    "teamId": "5",
+    "name": "Dragonfly",
+    "color": "#a82f3e",
+    "location": 3,
+    "x": 240,
+    "y": 191,
+    "id": 2
+  },
+  {
+    "teamId": "6",
+    "name": "Hyperfly",
+    "color": "#14e541",
+    "location": 3,
+    "x": 107,
+    "y": 66,
+    "id": 3
+  },
+  {
+    "teamId": "7",
+    "name": "Serenity",
+    "color": "#27d5fc",
+    "location": 3,
+    "x": 515,
+    "y": 265,
+    "id": 4
+  },
+  {
+    "teamId": "8",
+    "name": "IT",
+    "color": "#2e4aaa",
+    "location": 3,
+    "x": 832,
+    "y": 161,
+    "id": 5
+  },
+  {
+    "teamId": "11",
+    "name": "Brogrammers",
+    "color": "darkgrey",
+    "location": 3,
+    "x": 105,
+    "y": 465,
+    "id": 6
+  },
+  {
+    "teamId": "20",
+    "name": "Confluence",
+    "color": "#E88208",
+    "location": 4,
+    "x": 275,
+    "y": 579,
+    "id": 7
+  },
+  {
+    "teamId": "22",
+    "name": "Bee",
+    "color": "yellow",
+    "location": 4,
+    "x": 650,
+    "y": 455,
+    "id": 8
+  },
+  {
+    "teamId": "27",
+    "name": "Mercury",
+    "color": "#06780a",
+    "location": 4,
+    "x": 685,
+    "y": 579,
+    "id": 9
+  },
+  {
+    "teamId": "27",
+    "name": "Mercury",
+    "color": "#06780a",
+    "location": 4,
+    "x": 489,
+    "y": 579,
+    "id": 10
+  },
+  {
+    "teamId": "27",
+    "name": "Mercury",
+    "color": "#06780a",
+    "location": 4,
+    "x": 884,
+    "y": 579,
+    "id": 11
+  },
+  {
+    "teamId": "34",
+    "name": "UFO",
+    "color": "grey",
+    "location": 3,
+    "x": 500,
+    "y": 630,
+    "id": 12
+  }
+]

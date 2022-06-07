@@ -1,0 +1,162 @@
+[
+  {
+    "id": "0",
+    "name": "Personal",
+    "color": "#F5DBEE"
+  },
+  {
+    "id": "1",
+    "name": "Marketing",
+    "color": "#C6B2FC"
+  },
+  {
+    "id": "2",
+    "name": "Draw.io",
+    "color": "#E88208"
+  },
+  {
+    "id": "3",
+    "name": "Halo",
+    "color": "#5f75f6"
+  },
+  {
+    "id": "5",
+    "name": "Dragonfly",
+    "color": "#a82f3e"
+  },
+  {
+    "id": "6",
+    "name": "Hyperfly",
+    "color": "#14e541"
+  },
+  {
+    "id": "7",
+    "name": "Serenity",
+    "color": "#27d5fc"
+  },
+  {
+    "id": "8",
+    "name": "IT",
+    "color": "#2e4aaa"
+  },
+  {
+    "id": "9",
+    "name": "Player",
+    "color": "#E88208"
+  },
+  {
+    "id": "10",
+    "name": "Skywalker",
+    "color": "#E88208"
+  },
+  {
+    "id": "11",
+    "name": "Brogrammers",
+    "color": "#a9a9a9"
+  },
+  {
+    "id": "12",
+    "name": "Google",
+    "color": "#5895c8"
+  },
+  {
+    "id": "14",
+    "name": "Team Applesauce",
+    "color": "#c3cb2c"
+  },
+  {
+    "id": "16",
+    "name": "Rocket",
+    "color": "#E88208"
+  },
+  {
+    "id": "17",
+    "name": "Farmer",
+    "color": "#E88208"
+  },
+  {
+    "id": "18",
+    "name": "Jira",
+    "color": "#E88208"
+  },
+  {
+    "id": "20",
+    "name": "Confluence",
+    "color": "#E88208"
+  },
+  {
+    "id": "22",
+    "name": "Bee",
+    "color": "#00ffff"
+  },
+  {
+    "id": "23",
+    "name": "Neon",
+    "color": "#E88208"
+  },
+  {
+    "id": "24",
+    "name": "Baywatch",
+    "color": "#E88208"
+  },
+  {
+    "id": "25",
+    "name": "Team X",
+    "color": "#E88208"
+  },
+  {
+    "id": "27",
+    "name": "Mercury",
+    "color": "#06780a"
+  },
+  {
+    "id": "26",
+    "name": "ISO-Team",
+    "color": "#e88208"
+  },
+  {
+    "id": "29",
+    "name": "Linchpin Universe",
+    "color": "#add8e6"
+  },
+  {
+    "id": "30",
+    "name": "Innovationsmanagement",
+    "color": "#f5f5dc"
+  },
+  {
+    "id": "31",
+    "name": "WeCare4U",
+    "color": "#e88208"
+  },
+  {
+    "id": "32",
+    "name": "Zahlenflüsterer",
+    "color": "#9400d3"
+  },
+  {
+    "id": "33",
+    "name": "OE",
+    "color": "#8b008b"
+  },
+  {
+    "id": "34",
+    "name": "UFO",
+    "color": "#808080"
+  },
+  {
+    "id": "35",
+    "name": "Psychonauten",
+    "color": "#090909"
+  },
+  {
+    "id": "36",
+    "name": "Space Creators",
+    "color": "#64a882"
+  },
+  {
+    "id": "37",
+    "name": "VEDA-Admins",
+    "color": "#0065ff"
+  }
+]

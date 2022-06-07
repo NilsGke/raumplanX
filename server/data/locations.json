@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Headquarter 1. OG",
+    "tableHeight": 18,
+    "tableWidth": 36,
+    "fontSize": 16,
+    "img": "HQ1.png",
+    "id": 0
+  },
+  {
+    "name": "Headquarter 2. OG",
+    "tableHeight": 20,
+    "tableWidth": 40,
+    "fontSize": 16,
+    "img": "HQ2.png",
+    "id": 1
+  },
+  {
+    "name": "Luisenforum 3. OG",
+    "tableHeight": 20,
+    "tableWidth": 40,
+    "fontSize": 16,
+    "img": "luisenforum-3.png",
+    "id": 2
+  },
+  {
+    "name": "Luisenforum 5. OG",
+    "tableHeight": 18,
+    "tableWidth": 38,
+    "fontSize": 16,
+    "img": "luisenforum-5.png",
+    "id": 3
+  },
+  {
+    "name": "Berglandschaft",
+    "tableHeight": 32,
+    "tableWidth": 68,
+    "fontSize": 16,
+    "img": "Berglandschaft.png",
+    "id": 4
+  },
+  {
+    "name": "Surfers Beach",
+    "tableHeight": 32,
+    "tableWidth": 68,
+    "fontSize": 16,
+    "img": "Strandbar.png",
+    "id": 5
+  },
+  {
+    "name": "Tower",
+    "tableHeight": 24,
+    "tableWidth": 51,
+    "fontSize": 16,
+    "img": "Tower.png",
+    "id": 6
+  },
+  {
+    "name": "Wohnung",
+    "tableHeight": 0,
+    "tableWidth": 0,
+    "fontSize": 16,
+    "img": "Wohnung.png",
+    "id": 7
+  }
+]
