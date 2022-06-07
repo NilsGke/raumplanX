@@ -29,7 +29,7 @@ Design wise the new version is more modern and has a more modern look (including
 ### Automated setup (recommended)
 
 ```
-git clone https://github.com/NilsGke/raimplanX.git
+git clone https://github.com/NilsGke/raumplanX.git
 cd ./raumplanX
 npm run firstSetup
 
@@ -38,7 +38,7 @@ npm run firstSetup
 ### Manual setup
 
 ```
-git clone https://github.com/NilsGke/raimplanX.git
+git clone https://github.com/NilsGke/raumplanX.git
 
 cd ./raumplanX/client/
 npm install
