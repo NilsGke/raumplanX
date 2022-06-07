@@ -13,7 +13,7 @@
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-[![Node.js CI](https://github.com/NilsGke/raumplan2/actions/workflows/node.js.yml/badge.svg)](https://github.com/NilsGke/raumplan2/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/NilsGke/raumplanX/actions/workflows/node.js.yml/badge.svg?event=branch_protection_rule)](https://github.com/NilsGke/raumplanX/actions/workflows/node.js.yml)
 
 ## What is the "RaumplanX"
 
@@ -25,6 +25,17 @@ The new version is written in react and uses an express server as a backend, whe
 Design wise the new version is more modern and has a more modern look (including dark and light themes).
 
 ## Local setup
+
+### Automated setup (recommended)
+
+```
+git clone https://github.com/NilsGke/raimplanX.git
+cd ./raumplanX
+npm run firstSetup
+
+```
+
+### Manual setup
 
 ```
 git clone https://github.com/NilsGke/raimplanX.git
