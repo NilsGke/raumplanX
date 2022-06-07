@@ -553,7 +553,7 @@ const Router = () => {
   useEffect(() => {
     if (error === false)
       try {
-        fetchSync(process.env.REACT_APP_BACKEND + "ping");
+        fetchSync(process.env.REACT_APP_BACKEND);
       } catch (err) {
         setError(err);
         console.error(error);
