@@ -59,8 +59,9 @@ button.floatingButton {
 
 @media (prefers-color-scheme: light) {
   button.floatingButton {
-    svg {
-      filter: invert(1);
+    background-color: index.$bg3_light;
+    svg.invert {
+      filter: invert(0);
     }
   }
 }
