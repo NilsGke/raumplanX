@@ -94,7 +94,9 @@
       > .user {
         margin-top: 5px;
         cursor: pointer;
-        background-color: color.adjust(index.$bg2_light, $alpha: -0.3);
+        @media (prefers-color-scheme: light) {
+          background-color: color.adjust(index.$bg2_light, $alpha: -0.3);
+        }
       }
       > .table {
         background-color: #cfdcff;
@@ -212,6 +214,38 @@
       }
       to {
         opacity: 1;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #searchInnerContainer {
+    .wrapper {
+      background: color.adjust(index.$bg1_dark, $alpha: -0.3);
+      div.searchContainer {
+        input {
+          color: index.$text_dark;
+          background-color: color.adjust(index.$bg2_dark, $alpha: -0.3);
+          border: 2px solid index.$bg2_dark;
+          outline-color: index.$grey_dark;
+        }
+        div#clearInput {
+          color: #a8aaaf;
+          &:hover {
+            color: #bfc1c5;
+          }
+        }
+      }
+      div.results {
+        & {
+          &::-webkit-scrollbar-track {
+            background: index.$bg2_dark;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: index.$bg3_dark;
+          }
+        }
       }
     }
   }
