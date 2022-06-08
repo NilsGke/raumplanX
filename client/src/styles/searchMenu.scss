@@ -1,4 +1,5 @@
 @use "index";
+@use "sass:color";
 
 #searchInnerContainer {
   transition: all index.$transDur ease-in-out;
@@ -15,9 +16,11 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 0px 10px grey;
+  backdrop-filter: blur(7px);
+
   // TODO: change ids and style stuff
   .wrapper {
-    background: #28292d;
+    background: color.adjust(index.$bg1_light, $alpha: -0.3);
     border-radius: 20px;
     overflow: hidden;
     z-index: 1000;
@@ -26,15 +29,15 @@
     div.searchContainer {
       white-space: nowrap;
       input {
-        color: white;
+        color: index.$text_light;
         width: 250px;
         margin: 5px;
         padding: 10px;
-        background-color: #323336;
-        border: 2px solid #323336;
+        background-color: color.adjust(index.$bg2_light, $alpha: -0.3);
+        border: 2px solid index.$bg2_light;
         border-radius: 10px;
         font-size: 20px;
-        outline-color: #323336;
+        outline-color: index.$grey_light;
         outline-width: 1px;
         outline-style: hidden;
       }
@@ -91,6 +94,7 @@
       > .user {
         margin-top: 5px;
         cursor: pointer;
+        background-color: color.adjust(index.$bg2_light, $alpha: -0.3);
       }
       > .table {
         background-color: #cfdcff;
@@ -150,7 +154,7 @@
         }
         /* Track */
         &::-webkit-scrollbar-track {
-          background: #28292d;
+          background: index.$bg2_light;
           border-radius: 10px;
           &:hover {
             width: 10px;
@@ -159,7 +163,7 @@
         /* Handle */
         &::-webkit-scrollbar-thumb {
           transition: all index.$transDur ease-in-out;
-          background: #5b5d60;
+          background: index.$bg3_light;
           border-radius: 10px;
           &:hover {
             width: 10px;
