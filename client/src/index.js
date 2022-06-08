@@ -117,10 +117,15 @@ function App() {
       fetch(process.env.REACT_APP_BACKEND + "locations/" + locationId)
         .then((res) => res.json())
         .then((data) => {
-          locations.push(data[0]);
-          setLocationData(data[0]);
+          locations.push(data);
+          setLocationData(data);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          console.error(err);
+          changeLocation(
+            locationId >= locations.length ? locationId - 1 : locationId + 1
+          );
+        });
     } else {
       setLocationData(find);
     }
