@@ -23,14 +23,15 @@ router.get("/locations", (req, res) =>
 
 // serve tables for only one location
 router.get("/locations/*", (req, res) => {
-  const location = parseInt(
+  const locationId = parseInt(
     decodeURI(req.url).split("/").at(-1).replace("%20", " ")
   );
-  res.send(
-    JSON.parse(
-      fs.readFileSync("./server/data/locations.json").toString()
-    ).filter((loc) => loc.id === location)
-  );
+  const location = JSON.parse(
+    fs.readFileSync("./server/data/locations.json").toString()
+  ).find((loc) => loc.id === locationId);
+
+  if (location === undefined) res.sendStatus(404);
+  else res.send(location);
 });
 
 // serve one specific user

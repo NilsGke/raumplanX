@@ -51,11 +51,8 @@ router.get("/locations/*", (req, res) => {
         res.send({ err: err });
       }
 
-      if (result.length > 0) {
-        res.send(result);
-      } else {
-        res.send({ message: "error while fetching database" });
-      }
+      if (result.length > 0) res.send(result[0]);
+      else res.sendStatus(404);
     }
   );
 });
