@@ -110,6 +110,21 @@ function App() {
     };
   }, []);
 
+  /** function that sets up everything for the new location (deletes old tables and stuff)
+   * @param {number} id id of the new location
+   */
+  const changeLocation = useCallback(
+    (id) => {
+      if (locationId === id) return;
+      localStorage.setItem("raumplan", JSON.stringify({ location: id }));
+      setMovingTable(false);
+      tooltipRef.current.setVisible(false);
+      setLocationId(id);
+      setReloadTables(true);
+    },
+    [locationId]
+  );
+
   // location change
   useEffect(() => {
     const find = locations.find((l) => l.id === locationId);
@@ -129,7 +144,7 @@ function App() {
     } else {
       setLocationData(find);
     }
-  }, [locationId]);
+  }, [locationId, changeLocation]);
 
   // change browser title and browser url
   useEffect(() => {
@@ -191,21 +206,6 @@ function App() {
       setHighlightedTable(null);
     }
   }, [highlightTimers]);
-
-  /** function that sets up everything for the new location (deletes old tables and stuff)
-   * @param {number} id id of the new location
-   */
-  const changeLocation = useCallback(
-    (id) => {
-      if (locationId === id) return;
-      localStorage.setItem("raumplan", JSON.stringify({ location: id }));
-      setMovingTable(false);
-      tooltipRef.current.setVisible(false);
-      setLocationId(id);
-      setReloadTables(true);
-    },
-    [locationId]
-  );
 
   /** saves the moved table to the db
    * @returns {Promise}
