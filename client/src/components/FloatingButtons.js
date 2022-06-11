@@ -137,6 +137,7 @@ const FloatingButtons = forwardRef((props, ref) => {
               onClick={() =>
                 createNewTable(props.currentLocation)
                   .then((tableId) => {
+                    props.setHighlightedTable(tableId);
                     props.addToHistory({
                       description: `Neuer Tisch erstellt (id: ${tableId})`,
                       undo: () =>
